@@ -1,0 +1,638 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #faf7f3, #ffffff);
+    color: #e30a0a;
+    overflow-x: hidden;
+}
+
+/* NAVBAR */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    padding: 18px;
+    text-align: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.navbar h1 {
+    font-weight: 700;
+}
+
+.navbar span {
+    color: #e74c3c;
+}
+
+/* APP LAYOUT */
+.app {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 12px;
+}
+
+/* FEED CONTAINER */
+.container {
+    flex: 1;
+    max-width: 620px;
+}
+
+/* CARD BASE */
+.card {
+    background: #fff;
+    border-radius: 18px;
+    padding: 18px;
+    margin-bottom: 18px;
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.06),
+        0 2px 6px rgba(0, 0, 0, 0.04);
+    animation: fadeUp 0.4s ease;
+}
+
+/* AVATAR */
+.avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ff6b6b, #e74c3c);
+    color: #fff;
+    display: grid;
+    place-items: center;
+    font-weight: 700;
+    box-shadow: 0 4px 10px rgba(231, 76, 60, 0.35);
+}
+
+/* CREATE POST */
+.create-post {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.create-post input {
+    flex: 1;
+    padding: 14px 16px;
+    border-radius: 14px;
+    border: none;
+    background: #f4f4f4;
+}
+
+.create-post input:focus {
+    outline: none;
+    background: #fff;
+    box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.25);
+}
+
+.create-post button {
+    background: linear-gradient(135deg, #ff6b6b, #e74c3c);
+    border: none;
+    padding: 12px 18px;
+    border-radius: 999px;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* POST HEADER */
+.post-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.post-header h3 {
+    font-size: 15px;
+}
+
+.post-header span {
+    font-size: 12px;
+    color: #888;
+}
+
+/* DELETE POST BUTTON */
+.post-header button {
+    margin-left: auto;
+    background: none;
+    border: none;
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.post-header button:hover {
+    opacity: 1;
+}
+
+/* POST CONTENT */
+.post p {
+    font-size: 14.5px;
+    line-height: 1.7;
+    margin: 12px 0 14px;
+}
+
+/* POST ACTIONS */
+.post-actions {
+    display: flex;
+    gap: 26px;
+    font-size: 14px;
+}
+
+.post-actions span {
+    cursor: pointer;
+    color: #555;
+}
+
+.post-actions span:hover {
+    color: #e74c3c;
+}
+
+.liked {
+    color: #e74c3c;
+}
+
+/* COMMENTS */
+.comment-box {
+    margin-top: 12px;
+}
+
+.comment-box input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 12px;
+    border: none;
+    background: #f4f4f4;
+}
+
+.comment-list {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.comment {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f5f5f5;
+    padding: 8px 12px;
+    border-radius: 12px;
+    font-size: 13px;
+}
+
+.comment button {
+    border: none;
+    background: none;
+    color: #e74c3c;
+    cursor: pointer;
+}
+
+/* RIGHT SIDEBAR */
+.suggestions {
+    width: 300px;
+    position: sticky;
+    top: 90px;
+}
+
+.suggestions h4 {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 14px;
+}
+
+.suggestion-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.suggestion-card .avatar {
+    width: 36px;
+    height: 36px;
+    font-size: 13px;
+}
+
+.suggestion-card .info {
+    flex: 1;
+}
+
+.suggestion-card .info span {
+    font-size: 11px;
+    color: #888;
+}
+
+.suggestion-card button {
+    border: none;
+    background: none;
+    color: #0095f6;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .app {
+        justify-content: center;
+    }
+
+    .suggestions {
+        display: none;
+    }
+}
+
+/* LEFT SIDEBAR */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 100vh;
+    border-right: 1px solid #edafaf;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+    z-index: 20;
+}
+
+.logo {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 100px;
+    cursor: pointer;
+}
+
+/* NAV */
+.nav-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    flex: 1;
+}
+
+.nav-item {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 22px;
+    color: #fff;
+    transition: background 0.2s ease;
+}
+
+.nav-item:hover {
+    background: #1a1a1a;
+}
+
+.nav-item.active {
+    background: #262626;
+}
+
+/* BOTTOM */
+.bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.profile {
+    border-radius: 50%;
+    border: 1px solid #444;
+}
+
+/* SHIFT MAIN CONTENT */
+.navbar,
+.app {
+    margin-left: 80px;
+}
+
+/* MOBILE – HIDE SIDEBAR */
+@media (max-width: 900px) {
+    .sidebar {
+        display: none;
+    }
+
+    .navbar,
+    .app {
+        margin-left: 0;
+    }
+}
+
+
+/* LIFT EFFECT */
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.12),
+        0 8px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* POST ACTIONS – LIKE / COMMENT / SHARE */
+.post-actions span {
+    position: relative;
+}
+
+.post-actions span::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background: #e74c3c;
+    transition: width 0.25s ease, left 0.25s ease;
+}
+
+.post-actions span:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+.liked {
+    animation: heartPop 0.35s ease;
+}
+
+@keyframes heartPop {
+    0% {
+        transform: scale(0.6);
+    }
+
+    60% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* COMMENT ANIMATION */
+.comment {
+    animation: commentSlide 0.3s ease;
+}
+
+@keyframes commentSlide {
+    from {
+        opacity: 0;
+        transform: translateX(-6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* CREATE POST – FOCUS FEEDBACK */
+.create-post {
+    transition: box-shadow 0.3s ease;
+}
+
+.create-post:focus-within {
+    box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.35);
+}
+
+/* RIGHT SIDEBAR – SUGGESTIONS */
+.suggestion-card {
+    padding: 6px 4px;
+    border-radius: 12px;
+}
+
+.suggestion-card:hover {
+    background: rgba(0, 0, 0, 0.04);
+}
+
+.suggestion-card button {
+    transition: transform 0.2s ease;
+}
+
+.suggestion-card button:hover {
+    transform: scale(1.08);
+}
+
+/* LEFT SIDEBAR – DYNAMIC NAV */
+.sidebar {
+    background: linear-gradient(180deg, #e74c3c, #c0392b);
+}
+
+/* NAV HOVER GLOW */
+.nav-item:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: scale(1.08);
+}
+
+/* ACTIVE PULSE */
+.nav-item.active {
+    position: relative;
+}
+
+
+
+
+/* SIDEBAR MENU POPUP */
+#menu-popup {
+    position: fixed;
+    bottom: 80px;
+    left: 90px;
+    background: #111;
+    color: #fff;
+    border-radius: 12px;
+    padding: 10px;
+    width: 160px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    animation: fadeUp 0.2s ease;
+    z-index: 100;
+}
+
+.menu-item {
+    padding: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.menu-item:hover {
+    background: #222;
+}
+
+/* SEARCH OVERLAY */
+.search-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(6px);
+    display: none;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 120px;
+    z-index: 200;
+}
+
+.search-overlay.active {
+    display: flex;
+}
+
+/* SEARCH BOX */
+.search-box {
+    background: #fff;
+    width: 360px;
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+    animation: fadeUp 0.25s ease;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: none;
+    background: #f4f4f4;
+}
+
+.search-box input:focus {
+    outline: none;
+    background: #fff;
+    box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.25);
+}
+
+/* SEARCH RESULTS */
+.search-results {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 260px;
+    overflow-y: auto;
+}
+
+.search-result {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.search-result:hover {
+    background: #f5f5f5;
+}
+
+.search-result .avatar {
+    width: 32px;
+    height: 32px;
+    font-size: 12px;
+}
+
+.search-result span {
+    font-size: 14px;
+    font-weight: 500;
+}
+/* POST MEDIA (IMAGE / VIDEO) */
+.post-media {
+  width: 100%;
+  max-width: 100%;
+  max-height: 320px;          /* 🔥 height control */
+  object-fit: cover;          /* image crop nicely */
+  border-radius: 14px;
+  margin-top: 10px;
+  background: #000;
+}
+
+/* VIDEO SPECIFIC */
+.post-media video {
+  max-height: 320px;
+}
+
+/* OPTIONAL: PORTRAIT IMAGES */
+@media (min-width: 600px) {
+  .post-media {
+    max-height: 280px;
+  }
+}
+.delete-post {
+  margin-left: auto;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  opacity: 0.5;
+}
+
+.delete-post:hover {
+  opacity: 1;
+  color: #e74c3c;
+}
+/* THEME TOGGLE BUTTON */
+.theme-toggle {
+  position: absolute;
+  right: 20px;
+  top: 14px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #444;
+}
+
+/* DARK MODE */
+body.dark {
+  background: linear-gradient(135deg, #0d0d0d, #141414);
+  color: #f1f1f1;
+}
+
+body.dark .navbar {
+  background: rgba(18,18,18,0.85);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+body.dark .card {
+  background: #1a1a1a;
+}
+
+body.dark .create-post input,
+body.dark .comment-box input,
+body.dark .search-box input {
+  background: #2a2a2a;
+  color: #fff;
+}
+
+body.dark .post-actions span {
+  color: #aaa;
+}
+
+body.dark .theme-toggle {
+  color: #fff;
+}
+

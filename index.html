@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SocialFeed</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- LEFT SIDEBAR -->
+<nav class="sidebar">
+  <div class="logo" title="Home">SF</div>
+
+  <ul class="nav-list">
+    <li class="nav-item active" title="Home" data-action="home">🏠</li>
+    <li class="nav-item" title="Search" data-action="search">🔍</li>
+    <li class="nav-item" title="Explore" data-action="explore">🧭</li>
+<li class="nav-item" title="Chats" data-action="chats">💬</li>
+    <li class="nav-item" title="Notifications" data-action="notifications">❤️</li>
+    <li class="nav-item" title="Create" data-action="create">➕</li>
+  </ul>
+
+  <div class="bottom">
+    <div class="nav-item profile" title="Profile" data-action="profile">👤</div>
+    <div class="nav-item menu" title="More" data-action="menu">☰</div>
+  </div>
+</nav>
+
+<!-- TOP NAVBAR -->
+<header class="navbar">
+  <h1>Social<span>Feed</span></h1>
+  <button id="themeToggle" class="theme-toggle">🌙</button>
+</header>
+
+<!-- MAIN APP -->
+<main class="app">
+
+  <!-- FEED -->
+  <section class="container">
+
+    <!-- CREATE POST -->
+    <div class="card create-post">
+      <div class="avatar">Y</div>
+
+      <input
+        type="text"
+        id="postInput"
+        placeholder="What's on your mind?"
+        autocomplete="off"
+      />
+
+      <!-- MEDIA BUTTON -->
+      <button id="mediaBtn" type="button">📷</button>
+
+      <!-- HIDDEN FILE INPUT -->
+      <input
+        type="file"
+        id="mediaInput"
+        accept="image/*,video/*"
+        hidden
+      />
+
+      <button id="postBtn" type="button">✈ Post</button>
+    </div>
+
+    <!-- POSTS RENDER HERE -->
+    <div id="feed"></div>
+
+  </section>
+
+  <!-- RIGHT SIDEBAR -->
+  <aside class="suggestions">
+    <h4>Suggestions for you</h4>
+
+    <div class="suggestion-card">
+      <div class="avatar">M</div>
+      <div class="info">
+        <strong>megha</strong>
+        <span>Suggested for you</span>
+      </div>
+      <button>Follow</button>
+    </div>
+    <div class="suggestion-card">
+      <div class="avatar">M</div>
+      <div class="info">
+        <strong>maham</strong>
+        <span>Suggested for you</span>
+      </div>
+      <button>Follow</button>
+    </div>
+    <div class="suggestion-card">
+      <div class="avatar">A</div>
+      <div class="info">
+        <strong>ankita</strong>
+        <span>Suggested for you</span>
+      </div>
+      <button>Follow</button>
+    </div>
+
+    <div class="suggestion-card">
+      <div class="avatar">A</div>
+      <div class="info">
+        <strong>allahre</strong>
+        <span>New to SocialFeed</span>
+      </div>
+      <button>Follow</button>
+    </div>
+  </aside>
+
+</main>
+
+<!-- SEARCH OVERLAY -->
+<div id="search-overlay" class="search-overlay">
+  <div class="search-box">
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="Search profiles..."
+      autocomplete="off"
+    />
+    <div id="searchResults" class="search-results"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
